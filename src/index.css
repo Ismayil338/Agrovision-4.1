@@ -1,0 +1,59 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Active nav class for Dashboard */
+.active-nav {
+  background-color: rgba(13, 242, 13, 0.125);
+  border-left: 4px solid #0df20d;
+}
+
+/* Additional color definitions for components */
+.card-light {
+  background-color: #ffffff;
+}
+
+.dark .card-light {
+  background-color: #1a2e1a;
+}
+
+.card-dark {
+  background-color: #1a2e1a;
+}
+
+.dark .card-dark {
+  background-color: #1a2e1a;
+}
+
+.accent-orange {
+  color: #ff8c00;
+}
+
+.bg-accent-orange {
+  background-color: #ff8c00;
+}
+
+.brand-orange {
+  color: #ff8a00;
+}
+
+.bg-brand-orange {
+  background-color: #ff8a00;
+}
+
+.secondary-orange {
+  color: #f29d0d;
+}
+
+.bg-secondary-orange {
+  background-color: #f29d0d;
+}
