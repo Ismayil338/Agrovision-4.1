@@ -1,8 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function Footer() {
+  const { t } = useTranslation();
   const location = useLocation();
-  const lang = location.pathname.startsWith('/ru') ? 'ru' : 'en';
+  const lang = location.pathname.startsWith('/az') ? 'az' : 'en';
 
   return (
     <footer className="border-t border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark py-12">
@@ -16,62 +18,61 @@ function Footer() {
               <span className="text-lg font-bold dark:text-white">Agrovision</span>
             </div>
             <p className="text-sm text-slate-600 dark:text-slate-400">
-              Empowering the next generation of agriculture with accessible, high-precision AI
-              diagnostics.
+              {t('footer.tagline')}
             </p>
           </div>
           <div>
-            <h4 className="mb-4 font-bold dark:text-white">Product</h4>
+            <h4 className="mb-4 font-bold dark:text-white">{t('footer.product')}</h4>
             <ul className="flex flex-col gap-2 text-sm text-slate-600 dark:text-slate-400">
               <li>
                 <Link to={`/${lang}/analysis`} className="hover:text-primary transition-colors">
-                  AI Analysis
+                  {t('footer.aiAnalysis')}
                 </Link>
               </li>
               <li>
                 <Link to={`/${lang}/gallery`} className="hover:text-primary transition-colors">
-                  Disease Library
+                  {t('footer.diseaseLibrary')}
                 </Link>
               </li>
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Enterprise Tools
+                  {t('footer.enterpriseTools')}
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Mobile App
+                  {t('footer.mobileApp')}
                 </a>
               </li>
             </ul>
           </div>
           <div>
-            <h4 className="mb-4 font-bold dark:text-white">Company</h4>
+            <h4 className="mb-4 font-bold dark:text-white">{t('footer.company')}</h4>
             <ul className="flex flex-col gap-2 text-sm text-slate-600 dark:text-slate-400">
               <li>
                 <Link to={`/${lang}/features`} className="hover:text-primary transition-colors">
-                  About Us
+                  {t('footer.aboutUs')}
                 </Link>
               </li>
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Sustainability
+                  {t('footer.sustainability')}
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
-                  Press Kit
+                  {t('footer.pressKit')}
                 </a>
               </li>
               <li>
                 <Link to={`/${lang}/contact`} className="hover:text-primary transition-colors">
-                  Contact
+                  {t('footer.contact')}
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h4 className="mb-4 font-bold dark:text-white">Connect</h4>
+            <h4 className="mb-4 font-bold dark:text-white">{t('footer.connect')}</h4>
             <div className="flex gap-4">
               <a
                 className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
@@ -102,17 +103,17 @@ function Footer() {
         </div>
         <div className="mt-12 flex flex-col items-center justify-between gap-6 border-t border-slate-200 dark:border-slate-800 pt-8 lg:flex-row">
           <p className="text-sm text-slate-500 dark:text-slate-400">
-            © 2026 AgrovisionX AI Solutions. All rights reserved.
+            {t('footer.copyright')}
           </p>
           <div className="flex gap-8 text-sm text-slate-500 dark:text-slate-400">
             <a className="hover:text-primary transition-colors" href="#">
-              Privacy Policy
+              {t('footer.privacyPolicy')}
             </a>
             <a className="hover:text-primary transition-colors" href="#">
-              Terms of Service
+              {t('footer.termsOfService')}
             </a>
             <a className="hover:text-primary transition-colors" href="#">
-              Cookie Settings
+              {t('footer.cookieSettings')}
             </a>
           </div>
         </div>

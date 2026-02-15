@@ -1,21 +1,23 @@
 import { Link, useLocation } from 'react-router-dom';
-import { toggleTheme } from '../theme';
+import { useTranslation } from 'react-i18next';
+import { toggleTheme } from '../utils/theme';
 
 function Navbar() {
+  const { t } = useTranslation();
   const location = useLocation();
   const pathname = location.pathname;
-  
-  // Extract language and route from pathname
-  const lang = pathname.startsWith('/ru') ? 'ru' : 'en';
-  const currentRoute = pathname.replace(`/${lang}`, '') || '/home';
-  
+
+  // Extract language and route from pathname (EN or AZ)
+  const lang = pathname.startsWith('/az') ? 'az' : 'en';
+  const currentRoute = pathname.replace(/^\/(en|az)/, '') || '/home';
+
   const routes = [
-    { path: '/home', label: 'Home' },
-    { path: '/features', label: 'Features' },
-    { path: '/analysis', label: 'Analysis' },
-    { path: '/gallery', label: 'Gallery' },
-    { path: '/dashboard', label: 'Dashboard' },
-    { path: '/contact', label: 'Contact' },
+    { path: '/home', labelKey: 'nav.home' },
+    { path: '/features', labelKey: 'nav.features' },
+    { path: '/analysis', labelKey: 'nav.analysis' },
+    { path: '/gallery', labelKey: 'nav.gallery' },
+    { path: '/dashboard', labelKey: 'nav.dashboard' },
+    { path: '/contact', labelKey: 'nav.contact' },
   ];
 
   return (
@@ -38,15 +40,15 @@ function Navbar() {
                   : 'hover:text-primary'
               }`}
             >
-              {route.label}
+              {t(route.labelKey)}
             </Link>
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          {/* Language Switcher */}
+          {/* Language Switcher: EN / AZ */}
           <div className="flex items-center rounded-lg bg-slate-200/50 dark:bg-slate-800 p-1">
             <Link
-              to={pathname.replace(/^\/(en|ru)/, '/en')}
+              to={pathname.replace(/^\/(en|az)/, '/en')}
               className={`px-3 py-1 text-xs font-bold rounded transition-colors ${
                 lang === 'en'
                   ? 'bg-white dark:bg-slate-700 shadow-sm'
@@ -56,14 +58,14 @@ function Navbar() {
               EN
             </Link>
             <Link
-              to={pathname.replace(/^\/(en|ru)/, '/ru')}
+              to={pathname.replace(/^\/(en|az)/, '/az')}
               className={`px-3 py-1 text-xs font-bold rounded transition-colors ${
-                lang === 'ru'
+                lang === 'az'
                   ? 'bg-white dark:bg-slate-700 shadow-sm'
                   : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              RU
+              AZ
             </Link>
           </div>
           {/* Theme Toggle */}
@@ -78,7 +80,7 @@ function Navbar() {
             to={`/${lang}/login`}
             className="hidden lg:flex items-center justify-center rounded-lg bg-primary px-5 py-2 text-sm font-bold text-background-dark hover:brightness-110 transition-all"
           >
-            Get Started
+            {t('nav.getStarted')}
           </Link>
         </div>
       </div>

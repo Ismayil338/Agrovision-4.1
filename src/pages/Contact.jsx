@@ -1,68 +1,67 @@
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 function Contact() {
+  const { t } = useTranslation();
   const location = useLocation();
-  const lang = location.pathname.startsWith('/ru') ? 'ru' : 'en';
+  const lang = location.pathname.startsWith('/az') ? 'az' : 'en';
 
   return (
     <div className="relative flex min-h-screen flex-col overflow-x-hidden">
       <Navbar />
       <main className="flex-1">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-20 py-12">
-          {/* Hero Section */}
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-black leading-tight tracking-tight mb-4">Get in Touch</h2>
+            <h2 className="text-4xl md:text-5xl font-black leading-tight tracking-tight mb-4">{t('contact.title')}</h2>
             <p className="max-w-2xl text-lg text-[#499c49] dark:text-[#88c088]">
-              Have questions about our plant disease detection tool? Our team of agricultural experts and
-              developers are here to help you protect your crops.
+              {t('contact.subtitle')}
             </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Contact Form Column */}
             <section>
               <form action="#" className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-2">
                     <label className="text-sm font-semibold uppercase tracking-wider opacity-70">
-                      Full Name
+                      {t('contact.fullName')}
                     </label>
                     <input
                       className="w-full rounded-lg border border-[#cee8ce] dark:border-[#2d4d2d] bg-white dark:bg-[#162a16] p-4 text-base focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:opacity-50"
-                      placeholder="John Doe"
+                      placeholder={t('contact.fullNamePlaceholder')}
                       type="text"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
                     <label className="text-sm font-semibold uppercase tracking-wider opacity-70">
-                      Email
+                      {t('contact.email')}
                     </label>
                     <input
                       className="w-full rounded-lg border border-[#cee8ce] dark:border-[#2d4d2d] bg-white dark:bg-[#162a16] p-4 text-base focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:opacity-50"
-                      placeholder="john@example.com"
+                      placeholder={t('contact.emailPlaceholder')}
                       type="email"
                     />
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-semibold uppercase tracking-wider opacity-70">
-                    Subject
+                    {t('contact.subject')}
                   </label>
                   <select className="w-full rounded-lg border border-[#cee8ce] dark:border-[#2d4d2d] bg-white dark:bg-[#162a16] p-4 text-base focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all">
-                    <option>General Inquiry</option>
-                    <option>Technical Support</option>
-                    <option>Partnership</option>
-                    <option>Feedback</option>
+                    <option>{t('contact.generalInquiry')}</option>
+                    <option>{t('contact.technicalSupport')}</option>
+                    <option>{t('contact.partnership')}</option>
+                    <option>{t('contact.feedback')}</option>
                   </select>
                 </div>
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-semibold uppercase tracking-wider opacity-70">
-                    Message
+                    {t('contact.message')}
                   </label>
                   <textarea
                     className="w-full rounded-lg border border-[#cee8ce] dark:border-[#2d4d2d] bg-white dark:bg-[#162a16] p-4 text-base focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:opacity-50"
-                    placeholder="How can we help you?"
+                    placeholder={t('contact.messagePlaceholder')}
                     rows="5"
                   ></textarea>
                 </div>
@@ -71,28 +70,25 @@ function Contact() {
                   type="submit"
                 >
                   <span className="material-symbols-outlined">send</span>
-                  Send Message
+                  {t('contact.sendMessage')}
                 </button>
               </form>
             </section>
-            {/* Info & Map Column */}
             <aside className="space-y-10">
-              {/* Contact Info Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="p-6 rounded-xl bg-primary/10 dark:bg-primary/5 border border-primary/20">
                   <span className="material-symbols-outlined text-primary mb-3">location_on</span>
-                  <h4 className="font-bold text-lg mb-1">Our Offices</h4>
+                  <h4 className="font-bold text-lg mb-1">{t('contact.ourOffices')}</h4>
                   <p className="text-sm opacity-80">123 Green Ave, Silicon Valley, CA</p>
                   <p className="text-sm opacity-80">Ulitsa Lenina 45, Moscow, RU</p>
                 </div>
                 <div className="p-6 rounded-xl bg-primary/10 dark:bg-primary/5 border border-primary/20">
                   <span className="material-symbols-outlined text-primary mb-3">call</span>
-                  <h4 className="font-bold text-lg mb-1">Call Us</h4>
+                  <h4 className="font-bold text-lg mb-1">{t('contact.callUs')}</h4>
                   <p className="text-sm opacity-80">+1 (555) 000-1234</p>
                   <p className="text-sm opacity-80">+7 (495) 123-4567</p>
                 </div>
               </div>
-              {/* Map Section */}
               <div className="relative w-full h-[300px] rounded-xl overflow-hidden border border-[#cee8ce] dark:border-[#2d4d2d] shadow-inner bg-slate-200">
                 <div
                   className="absolute inset-0 bg-cover bg-center"
@@ -100,20 +96,18 @@ function Contact() {
                     backgroundImage: "url('https://placeholder.pics/svg/300')"
                   }}
                 >
-                  {/* Map Overlay Graphic */}
                   <div className="absolute inset-0 bg-primary/5 pointer-events-none"></div>
                   <div className="absolute top-1/2 left-1/3 size-6 bg-brand-orange rounded-full border-4 border-white animate-pulse"></div>
                   <div className="absolute top-1/4 right-1/4 size-6 bg-primary rounded-full border-4 border-white animate-pulse"></div>
                 </div>
                 <div className="absolute bottom-4 left-4 right-4 p-3 bg-white/90 dark:bg-black/80 backdrop-blur rounded-lg flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase">Live Location Tracking</span>
-                  <button className="text-xs font-bold text-primary underline">Open in Maps</button>
+                  <span className="text-xs font-bold uppercase">{t('contact.liveLocation')}</span>
+                  <button className="text-xs font-bold text-primary underline">{t('contact.openInMaps')}</button>
                 </div>
               </div>
-              {/* Social Links */}
               <div>
                 <h4 className="font-bold mb-4 uppercase text-xs tracking-[0.2em] opacity-60">
-                  Follow our updates
+                  {t('contact.followUpdates')}
                 </h4>
                 <div className="flex gap-4">
                   <a

@@ -1,17 +1,18 @@
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { toggleTheme } from '../theme';
+import { toggleTheme } from '../utils/theme';
 
 function Login() {
+  const { t } = useTranslation();
   const location = useLocation();
-  const lang = location.pathname.startsWith('/ru') ? 'ru' : 'en';
+  const lang = location.pathname.startsWith('/az') ? 'az' : 'en';
 
   return (
     <div className="relative flex min-h-screen flex-col overflow-x-hidden">
       <Navbar />
       <div className="flex min-h-screen flex-col lg:flex-row">
-        {/* Left Side: Image/Branding (Hidden on mobile) */}
         <div className="relative hidden lg:flex lg:w-1/2 items-center justify-center bg-background-dark">
           <div
             className="absolute inset-0 bg-cover bg-center opacity-60"
@@ -28,29 +29,26 @@ function Login() {
               <h1 className="text-white text-4xl font-bold tracking-tight">Agrovision</h1>
             </div>
             <h2 className="text-white text-5xl font-bold leading-tight mb-6">
-              Detect plant diseases with the power of AI.
+              {t('login.tagline')}
             </h2>
             <p className="text-primary/90 text-xl font-medium">
-              Protecting your harvest, one leaf at a time. Join thousands of farmers worldwide.
+              {t('login.subtagline')}
             </p>
             <div className="mt-12 flex gap-6">
               <div className="flex flex-col">
                 <span className="text-3xl font-bold text-white">98%</span>
-                <span className="text-sm text-slate-300">Accuracy Rate</span>
+                <span className="text-sm text-slate-300">{t('login.accuracyRate')}</span>
               </div>
               <div className="w-px h-12 bg-white/20"></div>
               <div className="flex flex-col">
                 <span className="text-3xl font-bold text-white">50+</span>
-                <span className="text-sm text-slate-300">Crop Types</span>
+                <span className="text-sm text-slate-300">{t('login.cropTypes')}</span>
               </div>
             </div>
           </div>
         </div>
-        {/* Right Side: Form */}
         <div className="flex flex-1 flex-col justify-center px-6 py-12 lg:px-20 xl:px-32 bg-background-light dark:bg-background-dark">
-          {/* Top Navigation / Actions */}
           <div className="absolute top-8 right-8 flex items-center gap-4">
-            {/* Theme Switcher */}
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-primary/20 transition-colors"
@@ -58,14 +56,12 @@ function Login() {
               <span className="material-symbols-outlined block dark:hidden">dark_mode</span>
               <span className="material-symbols-outlined hidden dark:block">light_mode</span>
             </button>
-            {/* Language Switcher */}
             <div className="flex bg-slate-200 dark:bg-slate-800 p-1 rounded-lg">
               <button className="px-3 py-1 rounded text-xs font-bold bg-primary text-background-dark">EN</button>
-              <button className="px-3 py-1 rounded text-xs font-bold text-slate-500 dark:text-slate-400">RU</button>
+              <button className="px-3 py-1 rounded text-xs font-bold text-slate-500 dark:text-slate-400">AZ</button>
             </div>
           </div>
           <div className="mx-auto w-full max-w-md">
-            {/* Mobile Logo */}
             <div className="lg:hidden flex items-center gap-2 mb-8 justify-center">
               <div className="size-8 bg-primary rounded flex items-center justify-center text-background-dark">
                 <span className="material-symbols-outlined text-lg font-bold">agriculture</span>
@@ -73,18 +69,17 @@ function Login() {
               <h2 className="text-2xl font-bold tracking-tight">Agrovision</h2>
             </div>
             <div className="mb-10">
-              <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Welcome back</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">{t('login.welcomeBack')}</h2>
               <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-                Please enter your details to access your dashboard.
+                {t('login.enterDetails')}
               </p>
             </div>
-            {/* Tabs */}
             <div className="flex border-b border-slate-200 dark:border-slate-800 mb-8">
               <button className="pb-4 px-6 text-sm font-bold border-b-2 border-primary text-slate-900 dark:text-white">
-                Login
+                {t('login.loginTab')}
               </button>
               <button className="pb-4 px-6 text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
-                Sign-up
+                {t('login.signupTab')}
               </button>
             </div>
             {/* Social Login */}
@@ -127,7 +122,7 @@ function Login() {
               </div>
               <div className="relative flex justify-center text-sm">
                 <span className="bg-background-light dark:bg-background-dark px-2 text-slate-500">
-                  Or continue with email
+                  {t('login.orContinueWith')}
                 </span>
               </div>
             </div>
@@ -135,7 +130,7 @@ function Login() {
             <form action="#" className="space-y-6">
               <div>
                 <label className="block text-sm font-bold text-slate-700 dark:text-slate-300" htmlFor="email">
-                  Email Address
+                  {t('login.emailAddress')}
                 </label>
                 <div className="mt-1">
                   <input
@@ -151,10 +146,10 @@ function Login() {
               <div>
                 <div className="flex items-center justify-between">
                   <label className="block text-sm font-bold text-slate-700 dark:text-slate-300" htmlFor="password">
-                    Password
+                    {t('login.password')}
                   </label>
                   <a className="text-sm font-bold text-primary hover:text-primary/80" href="#">
-                    Forgot password?
+                    {t('login.forgotPassword')}
                   </a>
                 </div>
                 <div className="mt-1 relative">
@@ -183,25 +178,24 @@ function Login() {
                   type="checkbox"
                 />
                 <label className="ml-2 block text-sm text-slate-600 dark:text-slate-400" htmlFor="remember-me">
-                  Remember me for 30 days
+                  {t('login.rememberMe')}
                 </label>
               </div>
               <button
                 className="flex w-full justify-center items-center rounded-lg bg-primary py-3 px-4 text-sm font-bold text-background-dark shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all active:scale-[0.98]"
                 type="submit"
               >
-                Sign in
+                {t('login.signIn')}
               </button>
             </form>
-            {/* Footer */}
             <p className="mt-10 text-center text-xs text-slate-500 dark:text-slate-500">
-              By continuing, you agree to our
+              {t('login.termsAgree')}
               <a className="font-bold text-slate-700 dark:text-slate-300 hover:underline" href="#">
-                {' '}Terms of Service
+                {' '}{t('login.termsOfService')}
               </a>
-              {' '}and
+              {' '}{t('login.and')}{' '}
               <a className="font-bold text-slate-700 dark:text-slate-300 hover:underline" href="#">
-                {' '}Privacy Policy
+                {t('login.privacyPolicy')}
               </a>.
             </p>
           </div>

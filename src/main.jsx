@@ -1,8 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import './utils/i18n'
 import './index.css'
 import App from './App.jsx'
-import { initTheme } from './theme'
+import { initTheme } from './utils/theme'
 
 initTheme()
 
