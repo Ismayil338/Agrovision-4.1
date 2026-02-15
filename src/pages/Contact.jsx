@@ -80,7 +80,6 @@ function Contact() {
                   <span className="material-symbols-outlined text-primary mb-3">location_on</span>
                   <h4 className="font-bold text-lg mb-1">{t('contact.ourOffices')}</h4>
                   <p className="text-sm opacity-80">123 Green Ave, Silicon Valley, CA</p>
-                  <p className="text-sm opacity-80">Ulitsa Lenina 45, Moscow, RU</p>
                 </div>
                 <div className="p-6 rounded-xl bg-primary/10 dark:bg-primary/5 border border-primary/20">
                   <span className="material-symbols-outlined text-primary mb-3">call</span>
