@@ -1,14 +1,11 @@
 import { useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { toggleTheme } from '../theme';
 
 function Login() {
   const location = useLocation();
   const lang = location.pathname.startsWith('/ru') ? 'ru' : 'en';
-
-  const toggleDarkMode = () => {
-    document.documentElement.classList.toggle('dark');
-  };
 
   return (
     <div className="relative flex min-h-screen flex-col overflow-x-hidden">
@@ -55,7 +52,7 @@ function Login() {
           <div className="absolute top-8 right-8 flex items-center gap-4">
             {/* Theme Switcher */}
             <button
-              onClick={toggleDarkMode}
+              onClick={toggleTheme}
               className="p-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-primary/20 transition-colors"
             >
               <span className="material-symbols-outlined block dark:hidden">dark_mode</span>

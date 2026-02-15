@@ -1,14 +1,11 @@
 import { useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { toggleTheme } from '../theme';
 
 function Dashboard() {
   const location = useLocation();
   const lang = location.pathname.startsWith('/ru') ? 'ru' : 'en';
-
-  const toggleDarkMode = () => {
-    document.documentElement.classList.toggle('dark');
-  };
 
   return (
     <div className="relative flex min-h-screen flex-col overflow-x-hidden">
@@ -79,7 +76,7 @@ function Dashboard() {
                 <button className="px-3 py-1 text-xs font-medium text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors">RU</button>
               </div>
               <button
-                onClick={toggleDarkMode}
+                onClick={toggleTheme}
                 className="p-2 hover:bg-slate-100 dark:hover:bg-white/5 rounded-full transition-colors text-slate-600 dark:text-slate-400"
               >
                 <span className="material-symbols-outlined">dark_mode</span>

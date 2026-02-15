@@ -6,10 +6,6 @@ function Analysis() {
   const location = useLocation();
   const lang = location.pathname.startsWith('/ru') ? 'ru' : 'en';
 
-  const toggleDarkMode = () => {
-    document.documentElement.classList.toggle('dark');
-  };
-
   return (
     <div className="relative flex min-h-screen flex-col overflow-x-hidden">
       <Navbar />
